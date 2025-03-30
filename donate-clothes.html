@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate Clothes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset some default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .donation-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .donation-container h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .form-group input[type="file"],
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .form-group button {
+      padding: 12px 20px;
+      background-color: #f5a623;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .form-group button:hover {
+      background-color: #d4871e;
+    }
+
+    .exciting-message {
+      margin-top: 20px;
+      text-align: center;
+      display: none;
+      font-size: 18px;
+      color: #f5a623;
+      font-weight: bold;
+    }
+
+    .gift-message {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .warning-message {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 16px;
+      color: #FF0000;
+      font-weight: bold;
+      display: none;
+    }
+
+    .uploaded-image {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .uploaded-image img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .donation-container {
+        padding: 15px;
+        width: 90%;
+      }
+
+      .form-group button {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+      
+      .exciting-message, .gift-message, .warning-message {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .donation-container {
+        width: 95%;
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .form-group button {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+      
+      .uploaded-image img {
+        max-width: 100%;
+      }
+      
+      .exciting-message, .gift-message, .warning-message {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Donate Clothes</h1>
+
+  <div class="donation-container">
+    <h2>Upload Your Donation</h2>
+
+    <form id="donation-form" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="clothes-image">Upload Image of Clothes:</label>
+        <input type="file" id="clothes-image" name="clothes-image" accept="image/*" required>
+      </div>
+
+      <!-- New fields for address, phone, email, and weight -->
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Your address" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Your email address" required>
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Weight of Clothes (in kg):</label>
+        <input type="number" id="weight" name="weight" placeholder="Enter the weight" min="0.1" step="0.1" required>
+      </div>
+
+      <div class="form-group">
+        <button type="button" id="pick-btn" disabled>Pick</button>
+      </div>
+    </form>
+
+    <div class="warning-message" id="warning-message">
+      <p>Please fill out the above details before clicking "Pick".</p>
+    </div>
+
+    <div class="exciting-message" id="exciting-message">
+      <p>Hurry! You won a gift for your donated clothes! 🎉</p>
+    </div>
+
+    <div class="gift-message" id="gift-message">
+      <!-- The gift message will be displayed here -->
+    </div>
+
+    <div class="uploaded-image" id="uploaded-image">
+      <!-- This is where the uploaded image will appear -->
+    </div>
+  </div>
+
+  <script>
+    // Function to check if all fields are filled
+    function checkFormCompletion() {
+      const address = document.getElementById('address').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const weight = document.getElementById('weight').value;
+
+      // Enable the "Pick" button if all fields are filled
+      if (address && phone && email && weight) {
+        document.getElementById('pick-btn').disabled = false;
+        document.getElementById('warning-message').style.display = 'none'; // Hide warning message
+      } else {
+        document.getElementById('pick-btn').disabled = true;
+        document.getElementById('warning-message').style.display = 'block'; // Show warning message
+      }
+    }
+
+    // Attach event listeners to form inputs
+    document.getElementById('address').addEventListener('input', checkFormCompletion);
+    document.getElementById('phone').addEventListener('input', checkFormCompletion);
+    document.getElementById('email').addEventListener('input', checkFormCompletion);
+    document.getElementById('weight').addEventListener('input', checkFormCompletion);
+
+    document.getElementById('pick-btn').addEventListener('click', function() {
+      // Get the file input
+      const fileInput = document.getElementById('clothes-image');
+      const file = fileInput.files[0];
+
+      // Get the weight value
+      const weight = parseFloat(document.getElementById('weight').value);
+
+      // Check if all required fields are filled
+      const address = document.getElementById('address').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+
+      // If any field is missing, show the warning message and stop further action
+      if (!address || !phone || !email || !weight) {
+        document.getElementById('warning-message').style.display = 'block';
+        return;
+      }
+
+      // Check if file and weight are valid
+      if (!file) {
+        alert("Please upload an image of the clothes you want to donate.");
+        return;
+      }
+
+      if (isNaN(weight) || weight <= 0) {
+        alert("Please enter a valid weight.");
+        return;
+      }
+
+      // Show the uploaded image preview
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const uploadedImageContainer = document.getElementById('uploaded-image');
+        uploadedImageContainer.innerHTML = `<img src="${event.target.result}" alt="Uploaded Clothes">`;
+      };
+      reader.readAsDataURL(file);
+
+      // Show the appropriate gift message based on weight
+      let giftMessage = "";
+      if (weight < 1) {
+        giftMessage = "You won a Bracelet for your donated clothes! 🎉";
+      } else if (weight >= 1 && weight < 5) {
+        giftMessage = "You won a Chain for your donated clothes! 🎉";
+      } else {
+        giftMessage = "You won a Super Chain for your donated clothes! 🎉";
+      }
+
+      // Show the gift message
+      document.getElementById('gift-message').innerHTML = `<p>${giftMessage}</p>`;
+
+      // Mock function to simulate a successful donation process
+      setTimeout(function() {
+        // Hide the button and form
+        document.getElementById('donation-form').style.display = 'none';
+
+        // Show the exciting message
+        document.getElementById('exciting-message').style.display = 'block';
+      }, 1000); // Simulate 1 second delay for the upload process
+    });
+  </script>
+
+</body>
+</html>

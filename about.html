@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Us | Maa Fashions</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #faf0e6; /* Light Bisque background color */
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: white;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 40px 20px;
+            margin: 20px 0;
+        }
+        section h1, section h2 {
+            font-size: 36px;
+            color: #333;
+        }
+        section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        section ul li {
+            font-size: 18px;
+            padding-left: 20px;
+            position: relative;
+        }
+        section ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Button Styles */
+        .hero-btn {
+            background-color: #e67e22;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .hero-btn:hover {
+            background-color: #d35400;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ffe4c4; /* Bisque background color */
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            header nav a {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <a href="index.html"><img src="logo.png" alt="Maa Fashions Logo" style="height: 50px;"></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#courses">Fashion Courses</a></li>
+                <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h1>About Maa Fashions</h1>
+        <p>Welcome to **Maa Fashions**, a platform dedicated to empowering women through the art of fashion design. We specialize in providing opportunities for women in the fashion industry by offering jobs, custom large costume design, and education through our fashion courses. Join us as we create beautiful, sustainable, and unique pieces using recycled clothes donated by our customers.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>At Maa Fashions, we are passionate about providing unique and sustainable fashion services, including:</p>
+        <ul>
+            <li><strong>Custom Large Costumes:</strong> We create bespoke costumes tailored to your needs, no matter how big or extravagant!</li>
+            <li><strong>Fashion Design Jobs for Women:</strong> We offer job opportunities for women to work in fashion design, providing them with a chance to use their talents to earn income while being part of an empowering community.</li>
+            <li><strong>Recycled Fashion:</strong> We specialize in transforming your old, unused clothes into beautiful new pieces. Our designs are made from clothes donated by customers, promoting sustainability while providing stylish, one-of-a-kind fashion.</li>
+        </ul>
+    </section>
+
+    <!-- Fashion Courses Section -->
+    <section id="courses">
+        <h2>Fashion Courses</h2>
+        <p>We believe in the power of education. Our fashion courses are designed to teach you everything from basic tailoring to advanced fashion design. Join us and learn how to create your own beautiful garments, whether for personal use or as a professional career.</p>
+        <ul>
+            <li><strong>Beginner’s Fashion Design:</strong> A course for those new to the world of fashion, focusing on basics like sewing, fabric choice, and garment creation.</li>
+            <li><strong>Advanced Fashion Design:</strong> For those who want to take their skills to the next level, offering more in-depth lessons on pattern-making, draping, and custom fashion.</li>
+            <li><strong>Upcycling and Recycled Fashion:</strong> Learn how to take old clothes and turn them into new, stylish pieces that are both fashionable and eco-friendly.</li>
+        </ul>
+        <!-- Enroll button now links to the jobs page -->
+        <a href="jobs.html" class="hero-btn">Enroll Now</a> <!-- Link to the jobs page -->
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs">
+        <h2>Job Opportunities</h2>
+        <p>Are you passionate about fashion design? We offer job opportunities for talented women to join our team. Whether you’re looking to design custom costumes, create recycled fashion, or teach courses, there’s a place for you here. Apply today and help us empower women through fashion!</p>
+        <!-- Apply button now links to the jobs page -->
+        <a href="jobs.html" class="hero-btn">Apply for a Job</a> <!-- Link to the jobs page -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to get in touch with us, please don’t hesitate to contact us!</p>
+        <a href="contact.html" class="hero-btn">Get in Touch</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Maa Fashions. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

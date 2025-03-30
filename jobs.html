@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs & Courses | Maa Fashions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf0e6; /* Light Bisque background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .jobs-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-category {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .job-category h3 {
+            margin-top: 0;
+        }
+
+        .hero-btn {
+            background-color: #e67e22;
+            color: white;
+            padding: 12px 30px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .hero-btn:hover {
+            background-color: #d35400;
+        }
+
+        .no-jobs {
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        .no-courses {
+            color: #e67e22;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="jobs-container">
+        <h2>Available Jobs and Fashion Courses at Maa Fashions</h2>
+        
+        <!-- Tailor Job Category -->
+        <section class="job-category">
+            <h3>Tailors</h3>
+            <p>Number of jobs available: <strong>3</strong></p>
+            <p>If you have the skills and passion for tailoring, apply now to join our team!</p>
+            <!-- Apply Button (Visible because jobs are available) -->
+            <a href="apply.html" class="hero-btn">Apply Now</a>
+        </section>
+
+        <!-- Fashion Designer Job Category -->
+        <section class="job-category">
+            <h3>Fashion Designers</h3>
+            <p>Number of jobs available: <strong>0</strong></p>
+            <!-- If no jobs are available -->
+            <p class="no-jobs">No current openings for Fashion Designers. However, you can still apply for future positions.</p>
+            <!-- Apply Button (Visible even if no jobs are available) -->
+            <a href="apply.html" class="hero-btn">Apply Anyway</a>
+        </section>
+
+        <!-- Saree Draper Job Category -->
+        <section class="job-category">
+            <h3>Saree Drapers</h3>
+            <p>Number of jobs available: <strong>2</strong></p>
+            <p>If you specialize in saree draping, we would love to have you as part of our team.</p>
+            <!-- Apply Button (Visible because jobs are available) -->
+            <a href="apply.html" class="hero-btn">Apply Now</a>
+        </section>
+
+        <!-- Shipping Officer Job Category -->
+        <section class="job-category">
+            <h3>Shipping Officers</h3>
+            <p>Number of jobs available: <strong>5</strong></p>
+            <p>If you have experience in managing shipments and logistics, apply now to become a Shipping Officer.</p>
+            <!-- Apply Button (Visible because jobs are available) -->
+            <a href="apply.html" class="hero-btn">Apply Now</a>
+        </section>
+
+        <!-- Data Officer Job Category -->
+        <section class="job-category">
+            <h3>Data Officers</h3>
+            <p>Number of jobs available: <strong>0</strong></p>
+            <!-- If no jobs are available -->
+            <p class="no-jobs">Currently, there are no openings for Data Officers. You can still submit an application for future positions.</p>
+            <!-- Apply Button (Visible even if no jobs are available) -->
+            <a href="apply.html" class="hero-btn">Apply Anyway</a>
+        </section>
+
+        <!-- Fashion Course Category -->
+        <section class="job-category">
+            <h3>Fashion Design Courses</h3>
+            <p>Number of courses available: <strong>2</strong></p>
+            <p>We offer expert-led Fashion Design courses to help you kickstart your career in the fashion industry.</p>
+            <!-- Apply Button (Visible because courses are available) -->
+            <a href="apply.html" class="hero-btn">Enroll Now</a>
+        </section>
+
+        <!-- No Courses Available Section -->
+        <section class="job-category">
+            <h3>Fashion Design Courses</h3>
+            <p>Number of courses available: <strong>0</strong></p>
+            <!-- If no courses are available -->
+            <p class="no-courses">Currently, no courses are available. However, you can still apply for upcoming sessions.</p>
+            <!-- Apply Button (Visible even if no courses are available) -->
+            <a href="apply.html" class="hero-btn">Apply for Future Courses</a>
+        </section>
+    </div>
+
+</body>
+</html>

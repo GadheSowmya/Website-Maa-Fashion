@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Clothes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 0.5rem 1rem;
+    }
+
+    nav a.logo {
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    nav .nav-links ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav .nav-links ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav .nav-links ul li a:hover {
+      color: #f5a623;
+    }
+
+    /* Choose Clothes Section */
+    #choose-clothes {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .product-details {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .product-media {
+      flex: 1;
+    }
+
+    .product-media video {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product-image {
+      width: 100%;
+      max-width: 500px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .product-info {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .product-info h1 {
+      font-size: 28px;
+      margin-bottom: 1rem;
+    }
+
+    .product-info p {
+      font-size: 18px;
+      margin-bottom: 1rem;
+    }
+
+    .product-info .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .add-to-cart-btn, .wishlist-btn {
+      background-color: #f5a623;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover, .wishlist-btn:hover {
+      background-color: #d4871e;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .footer h4 {
+      font-size: 24px;
+      margin-bottom: 1rem;
+    }
+
+    .footer p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons i {
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .social-icons i:hover {
+      color: #f5a623;
+    }
+
+    
+    @media (max-width: 768px) {
+      .product-details {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .product-media {
+        margin-bottom: 1.5rem;
+      }
+
+      .product-info h1 {
+        font-size: 24px;
+      }
+
+      .product-info p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .add-to-cart-btn, .wishlist-btn {
+        font-size: 14px;
+        padding: 0.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html"><img src="logo.png" alt="Logo" class="logo" height="120px" width="150px"></a>
+    <div class="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Add to Cart</a></li>
+        <li><a href="wishlist.html"><i class="fa fa-heart"></i> Wishlist</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <section id="choose-clothes">
+    <div class="product-details">
+      <!-- Video and Image Section -->
+      <div class="product-media">
+        <video width="100%" controls>
+          <source src="video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <img src="whitedress.jpg" alt="Clothing" class="product-image" height="700px" width="500px">
+      </div>
+
+      <!-- Product Information -->
+      <div class="product-info">
+        <h1>Stylish Dress</h1>
+        <p>Our latest stylish dress is a perfect blend of comfort and elegance. Customizable to your needs, it’s designed to fit every occasion. Available in various sizes and colors.</p>
+        <p><strong>Price:</strong>5000Rs/-</p>
+        
+        <!-- Add to Cart and Wishlist -->
+        <div class="buttons">
+          <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+          <button class="wishlist-btn"><i class="fa fa-heart"></i> Wishlist</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>Empowering skilled women from underprivileged backgrounds with fashion job opportunities and personalized design services. Tailoring each creation to your unique preferences, ensuring every piece reflects your style and aspirations.</p>
+    <div class="social-icons">
+      <i class="fa fa-facebook"></i>
+      <i class="fa fa-instagram"></i>
+      <i class="fa fa-whatsapp"></i>
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-linkedin"></i>
+    </div>
+    <p>Made with <i class="fa fa-heart-o"></i> by MaaFashions</p>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // Add to Cart functionality
+    document.querySelector('.add-to-cart-btn').addEventListener('click', function() {
+      const product = {
+        name: "Stylish Dress",
+        price: 5000.00,
+        image: "whitedress.jpg", 
+        quantity: 1
+      };
+  
+      // Check if there's an existing cart in localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+      
+      const existingProductIndex = cart.findIndex(item => item.name === product.name);
+      if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += 1;
+      } else {
+        cart.push(product);
+      }
+  
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+  
+      
+      alert('Added to Cart!');
+    });
+  
+    document.querySelector('.wishlist-btn').addEventListener('click', function() {
+      alert('Added to Wishlist!');
+    });
+  </script>
+  
+</body>
+</html>

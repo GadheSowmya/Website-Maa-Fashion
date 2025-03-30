@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply | Maa Fashions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf0e6; /* Light Bisque background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .apply-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .apply-container h2 {
+            text-align: center;
+        }
+
+        .apply-container input,
+        .apply-container textarea,
+        .apply-container button {
+            width: 90%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .hero-btn {
+            background-color: #e67e22;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .hero-btn:hover {
+            background-color: #d35400;
+        }
+
+        .video-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .video-upload input[type="file"] {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="apply-container">
+        <h2>Job or Course Application Form</h2>
+        <form action="submit_application" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" name="phone" id="phone" required>
+
+            <!-- Skills Field -->
+            <label for="skills">Skills (e.g., Fashion Design, Tailoring, Draping, etc.)</label>
+            <input type="text" name="skills" id="skills" required>
+
+            <!-- Video Upload for Skills -->
+            <div class="video-upload">
+                <label for="video">Upload Video of Your Skills (Optional)</label>
+                <input type="file" name="video" id="video" accept="video/*">
+                <small>Supported formats: .mp4, .avi, .mov</small>
+            </div>
+
+            <label for="message">Why do you want to work with Maa Fashions or take the course?</label>
+            <textarea name="message" id="message" rows="5" required></textarea>
+
+            <button type="submit" class="hero-btn">Submit Application</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Give & Customize Dresses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 0.5rem 1rem;
+      height: 130px;
+    }
+
+    nav a.logo {
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    nav .nav-links ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav .nav-links ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav .nav-links ul li a:hover {
+      color: #f5a623;
+    }
+
+    .cart-count {
+      background-color: #f5a623;
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 50%;
+      font-size: 12px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+
+    /* Customization Section */
+    .customize-section {
+      padding: 2rem;
+      background-color: #fff;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .customize-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 24px;
+    }
+
+    /* Small blocks for inputs */
+    .customize-section label {
+      display: block;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .customize-section input, .customize-section select {
+      width: 20%; 
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .customize-section button {
+      background-color: #f5a623;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .customize-section button:hover {
+      background-color: #d4871e;
+    }
+
+    /* Dress Gallery Section */
+    .dress-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+
+    .dress-item {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      width: calc(33% - 1rem);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .dress-item img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .dress-item h2 {
+      font-size: 24px;
+      margin-bottom: 0.5rem;
+    }
+
+    .dress-item p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .add-to-cart-btn {
+      background-color: #f5a623;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #d4871e;
+    }
+
+    .wishlist-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    .wishlist-btn.wishlisted {
+      color: red;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .footer h4 {
+      font-size: 24px;
+      margin-bottom: 1rem;
+    }
+
+    .footer p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons i {
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .social-icons i:hover {
+      color: #f5a623;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .dress-item {
+        width: calc(50% - 1rem);
+      }
+
+      .customize-section input, .customize-section select {
+        width: 50%; 
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .dress-item {
+        width: 100%;
+      }
+
+      .add-to-cart-btn {
+        font-size: 14px;
+        padding: 0.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html"><img src="logo.png" alt="Logo" class="logo" height="120px" width="150px"></a>
+    <div class="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="cart.html#customize"><i class="fa fa-shopping-cart"></i> Customize <span class="cart-count" id="cart-count">0</span></a></li>
+        <li><a href="wishlist.html" id="wishlist-link"><i class="fa fa-heart" id="wishlist-icon"></i> Wishlist</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Customization Section -->
+  <section class="customize-section" id="customize">
+    <h2>Upload and Customize Your Clothes</h2>
+    <form id="customize-form">
+      <label for="clothes-photo">Upload Photo of Clothes:</label>
+      <input type="file" id="clothes-photo" name="clothes-photo" accept="image/*" required>
+      
+      <label for="weight">Enter Weight (in kg):</label>
+      <input type="number" id="weight" name="weight" min="0.1" step="0.1" required>
+      
+      <label for="cloth-type">Type of Cloth:</label>
+      <select id="cloth-type" name="cloth-type" required>
+        <option value="saree">Saree</option>
+        <option value="silk">Silk</option>
+        <option value="cotton">Cotton</option>
+        <option value="jeans">Jeans</option>
+        <option value="other">Other</option>
+      </select>
+      
+      <button type="submit">Submit</button>
+    </form>
+    <p>Now Choose what type dress you want to customize after you click submit button</p>
+  </section>
+
+  <!-- Dress Gallery Section -->
+  <section class="dress-gallery">
+    <!-- Dress Item 1 -->
+    <div class="dress-item">
+      <img src="dress1.png" alt="Dress 1">
+      <h2>Green Casual Dress</h2>
+      <p>Perfect for college and occasions. Available stiches in various sizes.</p>
+      <p><strong>Stitching Price:</strong> 800 Rs/-</p>
+      <button class="add-to-cart-btn" data-name="Green Casual Dress" data-price="800">Add to Cart</button>
+      <button class="wishlist-btn" data-name="Green Casual Dress"><i class="fa fa-heart"></i></button>
+    </div>
+
+    <!-- Dress Item 2 -->
+    <div class="dress-item">
+      <img src="dress2.png" alt="Dress 2">
+      <h2>Party Wear</h2>
+      <p>Perfect for evening parties and events. All size stitches available</p>
+      <p><strong>Stitching Price:</strong> 900 Rs/-</p>
+      <button class="add-to-cart-btn" data-name="Party Wear" data-price="900">Add to Cart</button>
+      <button class="wishlist-btn" data-name="Party Wear"><i class="fa fa-heart"></i></button>
+    </div>
+
+    <!-- Dress Item 3 -->
+    <div class="dress-item">
+      <img src="dress3.png" alt="Dress 3">
+      <h2>Haldi Dress</h2>
+      <p>A classic piece that fits haldi occasion.</p>
+      <p><strong>Stitching Price:</strong> 1200 Rs/-</p>
+      <button class="add-to-cart-btn" data-name="Haldi Dress" data-price="1200">Add to Cart</button>
+      <button class="wishlist-btn" data-name="Haldi Dress"><i class="fa fa-heart"></i></button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>Empowering skilled women from underprivileged backgrounds with fashion job opportunities and personalized design services. Tailoring each creation to your unique preferences, ensuring every piece reflects your style and aspirations.</p>
+    <div class="social-icons">
+      <i class="fa fa-facebook"></i>
+      <i class="fa fa-instagram"></i>
+      <i class="fa fa-whatsapp"></i>
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-linkedin"></i>
+    </div>
+    <p>&copy; 2025 Give & Customize Dresses. All rights reserved.</p>
+  </section>
+
+  <script>
+    // Function to update cart count
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    // Function to update wishlist icon when clicking on Wishlist link in navbar
+    function updateWishlistIcon() {
+      // Check if there are any items in the wishlist
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      if (wishlist.length > 0) {
+        document.getElementById('wishlist-icon').classList.add('wishlisted');
+      } else {
+        document.getElementById('wishlist-icon').classList.remove('wishlisted');
+      }
+    }
+
+    // When the wishlist link is clicked, update the heart icon
+    document.getElementById('wishlist-link').addEventListener('click', function() {
+      updateWishlistIcon();
+    });
+
+    // Add to Cart functionality
+    document.querySelectorAll('.add-to-cart-btn').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const name = this.getAttribute('data-name');
+        const price = this.getAttribute('data-price');
+        
+        // Get the current cart from localStorage or initialize an empty array
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name, price });
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        updateCartCount();
+       
+        alert(`${name} has been added to your cart.`);
+        window.location.hash = 'customize'; 
+      });
+    });
+
+// Wishlist functionality
+document.querySelectorAll('.wishlist-btn').forEach(function(button) {
+  button.addEventListener('click', function(event) {
+    this.classList.toggle('wishlisted');
+    
+    const dressName = this.getAttribute('data-name');
+    
+    // Show confirmation message
+    if (this.classList.contains('wishlisted')) {
+      alert(`${dressName} has been added to your wishlist.`);
+    }
+
+    // Remove the redirect to wishlist page
+    // The redirection to the wishlist page will now be handled only by clicking the wishlist link in the navbar.
+  });
+});
+
+
+   
+
+    updateCartCount();
+    updateWishlistIcon();  // Call this function to initialize the heart icon
+  </script>
+
+</body>
+</html>
