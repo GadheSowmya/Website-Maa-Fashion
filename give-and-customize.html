@@ -44,21 +44,100 @@
       text-decoration: none;
       font-size: 16px;
     }
+    
+    
+   
+@media(max-width:700px){
+  nav {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    
+    z-index: 10; 
+  }
 
-    nav .nav-links ul li a:hover {
-      color: #f5a623;
-    }
+  .header{
+    height: 80%;
+    width: 100%;
+  };
+  nav img {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: auto;
+  height: auto;
+}
+  .nav-links {
+    display: block; 
+    position: fixed; 
+    background: rgb(55, 52, 49);
+    height: 100%; 
+    width: 50%; 
+    top: 0;
+    right: -50%;
+    text-align: left;
+    z-index: 2;
+    padding-top: 70px;
+    transition: transform 0.3s ease; 
+    
+    
+  }
 
-    .cart-count {
-      background-color: #f5a623;
-      color: white;
-      padding: 0.3rem 0.6rem;
-      border-radius: 50%;
-      font-size: 12px;
-      position: absolute;
-      top: 5px;
-      right: 5px;
-    }
+  .nav-links.active {
+    display: block;
+    transform: translateX(-100%); 
+  }
+
+  /* Hamburger menu icon */
+  .hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: block; /* Show hamburger icon on mobile */
+    z-index: 10;
+    position: fixed;
+    top: 10px;
+    right: 15px ;
+    color: black;
+  }
+
+  /* Mobile menu items */
+  .nav-links ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: block;
+  }
+
+  .nav-links ul li {
+    display: block; /* Stack the items vertically */
+    margin: 15px 0;
+  }
+
+  .nav-links ul li a {
+    display: block;
+    padding: 10px 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: left;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-links ul li a:hover {
+    background-color: #FFD700;
+    color: white;
+  }
+  body.menu-active .text-box,
+  body.menu-active h1,
+  body.menu-active p,body.menu-active .hero-btn-container  {
+    display: inline-block; /* Hide h1 and p when the menu is active */
+  }
+  
+}
 
     /* Customization Section */
     .customize-section {
@@ -67,8 +146,13 @@
       margin-bottom: 2rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 1px;
     }
-
+    @media (max-width: 700px) {
+  body {
+    padding-top: 130px; /* Added padding-top to push the content down */
+  }
+}
     .customize-section h2 {
       text-align: center;
       margin-bottom: 1rem;
@@ -243,6 +327,8 @@
   <!-- Navigation -->
   <nav>
     <a href="index.html"><img src="logo.png" alt="Logo" class="logo" height="120px" width="150px"></a>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    
     <div class="nav-links">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -250,8 +336,10 @@
         <li><a href="cart.html#customize"><i class="fa fa-shopping-cart"></i> Customize <span class="cart-count" id="cart-count">0</span></a></li>
         <li><a href="wishlist.html" id="wishlist-link"><i class="fa fa-heart" id="wishlist-icon"></i> Wishlist</a></li>
       </ul>
+      
     </div>
   </nav>
+
   <!-- Customization Section -->
   <section class="customize-section" id="customize">
     <h2>Upload and Customize Your Clothes</h2>
@@ -324,7 +412,7 @@
   </section>
 
   <script>
-    // Function to update cart count
+    // Function to update cart count in navbar
     function updateCartCount() {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       document.getElementById('cart-count').textContent = cart.length;
@@ -332,7 +420,6 @@
 
     // Function to update wishlist icon when clicking on Wishlist link in navbar
     function updateWishlistIcon() {
-      // Check if there are any items in the wishlist
       let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
       if (wishlist.length > 0) {
         document.getElementById('wishlist-icon').classList.add('wishlisted');
@@ -340,11 +427,6 @@
         document.getElementById('wishlist-icon').classList.remove('wishlisted');
       }
     }
-
-    // When the wishlist link is clicked, update the heart icon
-    document.getElementById('wishlist-link').addEventListener('click', function() {
-      updateWishlistIcon();
-    });
 
     // Add to Cart functionality
     document.querySelectorAll('.add-to-cart-btn').forEach(function(button) {
@@ -359,34 +441,34 @@
         localStorage.setItem('cart', JSON.stringify(cart));
 
         updateCartCount();
-       
+
         alert(`${name} has been added to your cart.`);
-        window.location.hash = 'customize'; 
+        window.location.hash = 'customize'; // Scroll to customization section
       });
     });
 
-// Wishlist functionality
-document.querySelectorAll('.wishlist-btn').forEach(function(button) {
-  button.addEventListener('click', function(event) {
-    this.classList.toggle('wishlisted');
+    // Wishlist functionality
+    document.querySelectorAll('.wishlist-btn').forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        this.classList.toggle('wishlisted');
+        
+        const dressName = this.getAttribute('data-name');
+        
+        // Show confirmation message
+        if (this.classList.contains('wishlisted')) {
+          alert(`${dressName} has been added to your wishlist.`);
+        }
+      });
+    });
+    updateCartCount();  
+    updateWishlistIcon();  
     
-    const dressName = this.getAttribute('data-name');
-    
-    // Show confirmation message
-    if (this.classList.contains('wishlisted')) {
-      alert(`${dressName} has been added to your wishlist.`);
+    function toggleMenu() {
+      var navLinks = document.querySelector('.nav-links');
+      var body = document.querySelector('body');
+      navLinks.classList.toggle('active'); 
+      body.classList.toggle('menu-active'); 
     }
-
-    // Remove the redirect to wishlist page
-    // The redirection to the wishlist page will now be handled only by clicking the wishlist link in the navbar.
-  });
-});
-
-
-   
-
-    updateCartCount();
-    updateWishlistIcon();  // Call this function to initialize the heart icon
   </script>
 
 </body>
