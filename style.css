@@ -384,7 +384,7 @@ h3{
   }
 
   .row .online-col, .row1 .online-col {
-      width: 80%;  /* Make the columns wider on mobile */
+      width: 100%;  /* Make the columns wider on mobile */
       margin-bottom: 20px;  /* Add space between columns */
   }
 }
