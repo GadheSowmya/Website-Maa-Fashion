@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #faf0e6; /* Light Bisque background */
+            background-color: #faf0e6; 
             margin: 0;
             padding: 0;
         }
@@ -60,9 +60,38 @@
         .video-upload input[type="file"] {
             margin-top: 10px;
         }
+
+        /* Back Arrow Styling */
+        .back-arrow {
+            font-size: 35px;
+            color:black;
+            text-decoration: none;
+            margin-top: 40px;
+            margin-left: 30px;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .back-arrow:hover {
+            color: #d35400;
+        }
+        @media(max-width:700px){
+            .jobs-container{
+                padding-top: -10px;
+                margin: -5px 10px;
+            }
+            .back-arrow{
+                margin:8px 4px;
+                font-size: 30px;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Back Arrow Link -->
+    <a href="jobs.html" class="back-arrow">&#8592; </a>
 
     <div class="apply-container">
         <h2>Job or Course Application Form</h2>
