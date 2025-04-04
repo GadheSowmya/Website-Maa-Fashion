@@ -11,19 +11,29 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #faf0e6; 
+            background-color: #faf0e6;
             color: #333;
         }
+
         header {
             background-color: #333;
             padding: 20px;
             color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
         header nav a {
             color: white;
             text-decoration: none;
             margin-right: 20px;
             font-size: 18px;
+        }
+
+        header nav a:hover{
+            color: white;
+            text-decoration: underline;
         }
         header nav ul {
             list-style: none;
@@ -31,8 +41,78 @@
             margin: 0;
             display: flex;
         }
-        header nav a:hover {
+      
+        /* Hamburger Menu for Mobile */
+        .hamburger {
+            display: none; 
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Mobile Specific Styles */
+        @media (max-width: 768px) {
+            body{
+                position:static;
+            }
+          header nav ul {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+
+                gap: 40px;
+                background-color:#333;
+                position:fixed;
+                top: 0;
+                right: -300px; /* Initially hide the menu off-screen on the right */
+                width: 130px; /* Fixed width for the menu */
+                height: 100%;
+                transition: right 0.3s ease; /* Smooth transition */
+                
+            }
+
+            header nav a {
+                color: white;
+                text-decoration: none;
+                margin:  50px 0;
+                font-size: 18px;
+                position:fixed;
+                display: block;
+                gap: 100px;
+                text-align: left;
+                padding: 10px 20px; 
+            }
+            header nav ul li a{
+                gap: 60px;
+                display: block;
+                padding: 20px 10px;
+                text-decoration: none;
+            }
+
+            header nav a:hover{
             text-decoration: underline;
+        }
+
+            /* Show the hamburger icon for mobile */
+            .hamburger {
+                display: block;
+                color: white;
+                cursor: pointer;
+                position:absolute;
+                top: 20px;
+                right: 20px;
+                z-index: 10;
+            }
+
+            /* Active class to show the menu from the right */
+            .nav-active {
+                right: 0; 
+                position:absolute;
+                height: 432%;
+            }
+            section {
+        padding: 40px 20px;
+        margin-top: 80px; 
+    }
         }
 
         /* Section Styling */
@@ -40,24 +120,29 @@
             padding: 40px 20px;
             margin: 20px 0;
         }
+
         section h1, section h2 {
             font-size: 36px;
             color: #333;
         }
+
         section p {
             font-size: 18px;
             line-height: 1.6;
             color: #555;
         }
+
         section ul {
             list-style-type: none;
             padding: 0;
         }
+
         section ul li {
             font-size: 18px;
             padding-left: 20px;
             position: relative;
         }
+
         section ul li::before {
             content: "•";
             position: absolute;
@@ -78,6 +163,7 @@
             transition: background-color 0.3s;
             margin-top: 20px;
         }
+
         .hero-btn:hover {
             background-color: #d35400;
         }
@@ -98,7 +184,9 @@
             header nav ul {
                 flex-direction: column;
                 text-align: center;
+               margin-top: 10px;
             }
+
             header nav a {
                 margin-bottom: 10px;
             }
@@ -109,14 +197,14 @@
 
     <!-- Header Section -->
     <header>
+        <a href="index.html"><img src="logo.png" alt="Maa Fashions Logo" height="100px" width="130px"></a>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div> 
         <nav>
-            <a href="index.html"><img src="logo.png" alt="Maa Fashions Logo" style="height: 50px;"></a>
             <ul>
-                <li><a href="index.html">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#courses">Fashion Courses</a></li>
-                <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#jobs">Job Opportunities</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -134,7 +222,7 @@
         <p>At Maa Fashions, we are passionate about providing unique and sustainable fashion services, including:</p>
         <ul>
             <li><strong>Custom Large Costumes:</strong> We create bespoke costumes tailored to your needs, no matter how big or extravagant!</li>
-            <li><strong>Fashion Design Jobs for Women:</strong> We offer job opportunities for women to work in fashion design, providing them with a chance to use their talents to earn income while being part of an empowering community.</li>
+            <br><li><strong>Fashion Design Jobs for Women:</strong> We offer job opportunities for women to work in fashion design, providing them with a chance to use their talents to earn income while being part of an empowering community.</li></br>
             <li><strong>Recycled Fashion:</strong> We specialize in transforming your old, unused clothes into beautiful new pieces. Our designs are made from clothes donated by customers, promoting sustainability while providing stylish, one-of-a-kind fashion.</li>
         </ul>
     </section>
@@ -145,18 +233,17 @@
         <p>We believe in the power of education. Our fashion courses are designed to teach you everything from basic tailoring to advanced fashion design. Join us and learn how to create your own beautiful garments, whether for personal use or as a professional career.</p>
         <ul>
             <li><strong>Beginner’s Fashion Design:</strong> A course for those new to the world of fashion, focusing on basics like sewing, fabric choice, and garment creation.</li>
-            <li><strong>Advanced Fashion Design:</strong> For those who want to take their skills to the next level, offering more in-depth lessons on pattern-making, draping, and custom fashion.</li>
+            <br><li><strong>Advanced Fashion Design:</strong> For those who want to take their skills to the next level, offering more in-depth lessons on pattern-making, draping, and custom fashion.</li></br>
             <li><strong>Upcycling and Recycled Fashion:</strong> Learn how to take old clothes and turn them into new, stylish pieces that are both fashionable and eco-friendly.</li>
         </ul>
-        <!-- Enroll button now links to the jobs page -->
-        <a href="jobs.html" class="hero-btn">Enroll Now</a>
+        <!-- Enroll button -->
+        <a href="jobs.html" class="hero-btn">Enroll Now</a> <!-- Link to the jobs page -->
     </section>
 
     <!-- Jobs Section -->
     <section id="jobs">
         <h2>Job Opportunities</h2>
         <p>Are you passionate about fashion design? We offer job opportunities for talented women to join our team. Whether you’re looking to design custom costumes, create recycled fashion, or teach courses, there’s a place for you here. Apply today and help us empower women through fashion!</p>
-        <!-- Apply button now links to the jobs page -->
         <a href="jobs.html" class="hero-btn">Apply for a Job</a> <!-- Link to the jobs page -->
     </section>
 
@@ -172,5 +259,12 @@
         <p>&copy; 2025 Maa Fashions. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Toggle the navigation menu on mobile
+        function toggleMenu() {
+            var nav = document.querySelector('header nav ul');
+            nav.classList.toggle('nav-active'); 
+        }
+    </script>
 </body>
 </html>
