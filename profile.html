@@ -62,12 +62,49 @@
       background-color: #d4871e;
     }
 
+    /* Back Button with Dropdown Styling */
+    .back-buttons {
+      margin-bottom: 1.5rem;
+    }
+
+    .back-buttons select,
+    .back-buttons button {
+      background-color: #f5a623;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back-buttons select {
+      width: 70%;
+    }
+
+    .back-buttons button {
+      width: 28%;
+    }
+
+    .back-buttons button:hover {
+      background-color: #d4871e;
+    }
+
   </style>
 </head>
 <body>
 
   <div class="profile-container">
     <h2>Your Profile</h2>
+
+    <!-- Back Button with Dropdown -->
+    <div class="back-buttons">
+      <select id="backPage">
+        <option value="give-and-customize.html">Give and Customize</option>
+        <option value="choose-clothes.html">Choose Clothes</option>
+      </select>
+      <button onclick="goBack()">Go Back</button>
+    </div>
 
     <form action="#" method="POST">
       <div class="profile-info">
@@ -95,6 +132,14 @@
       </div>
     </form>
   </div>
+
+  <script>
+    // Function to redirect based on dropdown selection
+    function goBack() {
+      var selectedPage = document.getElementById("backPage").value;
+      window.location.href = selectedPage;
+    }
+  </script>
 
 </body>
 </html>
