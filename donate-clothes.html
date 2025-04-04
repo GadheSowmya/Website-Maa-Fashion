@@ -4,8 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donate Clothes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome CDN -->
   <style>
-   
+    
     * {
       margin: 0;
       padding: 0;
@@ -19,10 +20,19 @@
       padding: 20px;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 32px;
+    .back-arrow {
+      font-size: 20px;
+      color:black;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
       margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .back-arrow:hover {
+      color:#f5a623;
+      font-weight: 100;
     }
 
     .donation-container {
@@ -164,7 +174,10 @@
 </head>
 <body>
 
-  <h1>Donate Clothes</h1>
+  <!-- Back Arrow (Font Awesome Icon) -->
+  <a href="index.html" class="back-arrow"><i class="fas fa-arrow-left"></i></a> <!-- Arrow Icon -->
+
+  
 
   <div class="donation-container">
     <h2>Upload Your Donation</h2>
@@ -175,7 +188,6 @@
         <input type="file" id="clothes-image" name="clothes-image" accept="image/*" required>
       </div>
 
-      <!-- New fields for address, phone, email, and weight -->
       <div class="form-group">
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" placeholder="Your address" required>
@@ -210,7 +222,6 @@
     </div>
 
     <div class="gift-message" id="gift-message">
-      <!-- The gift message will be displayed here -->
     </div>
 
     <div class="uploaded-image" id="uploaded-image">
@@ -229,7 +240,7 @@
       // Enable the "Pick" button if all fields are filled
       if (address && phone && email && weight) {
         document.getElementById('pick-btn').disabled = false;
-        document.getElementById('warning-message').style.display = 'none';
+        document.getElementById('warning-message').style.display = 'none'; 
       } else {
         document.getElementById('pick-btn').disabled = true;
         document.getElementById('warning-message').style.display = 'block'; 
@@ -293,14 +304,10 @@
       // Show the gift message
       document.getElementById('gift-message').innerHTML = `<p>${giftMessage}</p>`;
 
-      // Mock function to simulate a successful donation process
       setTimeout(function() {
-        // Hide the button and form
         document.getElementById('donation-form').style.display = 'none';
-
-        // Show the exciting message
         document.getElementById('exciting-message').style.display = 'block';
-      }, 1000); // Simulate 1 second delay for the upload process
+      }, 1000); 
     });
   </script>
 
