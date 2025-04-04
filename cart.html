@@ -131,6 +131,7 @@
     // Function to display cart items
     window.onload = function() {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      console.log("Loaded cart from localStorage:", cart);
       const cartItemsContainer = document.getElementById('cart-items');
       const checkoutButton = document.getElementById('checkout-btn');
 
@@ -150,7 +151,7 @@
             <img src="${item.image}" alt="${item.name}">
             <div class="info">
               <p><strong>${item.name}</strong></p>
-              <p>Price: $${item.price}</p>
+              <p>Price: ${item.price}Rs/-</p>
               <div class="actions">
                 <button onclick="changeQuantity(${index}, 'decrease')">-</button>
                 <p>Quantity: ${item.quantity}</p>
@@ -159,7 +160,7 @@
               </div>
             </div>
             <div class="total">
-              <p><strong>Total: $${(item.price * item.quantity).toFixed(2)}</strong></p>
+              <p><strong>Total: ${(item.price * item.quantity).toFixed(2)}Rs/-</strong></p>
             </div>
           `;
           cartItemsContainer.appendChild(cartItem);
@@ -168,6 +169,7 @@
         checkoutButton.style.display = 'block';
       }
     };
+    
 
     // Remove item from cart
     function removeItem(index) {
