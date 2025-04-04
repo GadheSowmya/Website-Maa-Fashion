@@ -56,9 +56,40 @@
             color: #e67e22;
             font-weight: bold;
         }
+
+        /* Back Arrow Styling */
+        .back-arrow {
+            font-size: 35px;
+            font-weight: 400;
+            color:black;
+            text-decoration: none;
+            margin-top: 40px;
+            margin-left: 30px;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .back-arrow:hover {
+            color: #f18136;
+        }
+        @media(max-width:700px){
+            .jobs-container{
+                padding-top: -10px;
+                margin: 5px 10px;
+            }
+            .back-arrow{
+                margin:8px 4px;
+                font-size: 30px;
+            }
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Back Arrow Link -->
+    <a href="about.html" class="back-arrow">&#8592; </a>
 
     <div class="jobs-container">
         <h2>Available Jobs and Fashion Courses at Maa Fashions</h2>
